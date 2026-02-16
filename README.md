@@ -1,0 +1,1 @@
+# supabase-aws-serverless-template
