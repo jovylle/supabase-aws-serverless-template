@@ -1,0 +1,19 @@
+service: supabase-aws-template
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-southeast-1
+  environment:
+    SUPABASE_URL: ${env:SUPABASE_URL}
+    SUPABASE_SECRET_KEY: ${env:SUPABASE_SECRET_KEY}
+
+functions:
+  api:
+    handler: src/handler.main
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
