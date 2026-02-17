@@ -59,7 +59,7 @@ Set `AWS_PROFILE=deploy` (or similar) before deployments if you use a named prof
 
 ### 3. Frontend & Production
 
-1. Update `frontend/app.js` so `API_URL` points at your API Gateway endpoint from Serverless.
+1. Update `frontend/app.js` so `API_BASE` points to the endpoint reported by Serverless (e.g., `https://yvo2a8ln14.execute-api.ap-southeast-1.amazonaws.com`) and `API_STAGE` matches the stage (`dev`). The helper variables combine to hit `/dev/notes`.
 2. Deploy the static UI:
    - **Netlify** — [Create a new site](https://app.netlify.com) (drop `frontend/` or connect your repo).  
    - **GitHub Pages** — push `frontend/` to a branch and enable GitHub Pages in Settings.  

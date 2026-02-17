@@ -1,5 +1,6 @@
-const API_URL =
-  "https://yvo2a8ln14.execute-api.ap-southeast-1.amazonaws.com/{proxy+}";
+const API_STAGE = "dev";
+const API_BASE = "https://yvo2a8ln14.execute-api.ap-southeast-1.amazonaws.com";
+const API_URL = `${API_BASE}/${API_STAGE}`;
 
 async function loadNotes() {
   const res = await fetch(`${API_URL}/notes`);
@@ -7,6 +8,11 @@ async function loadNotes() {
 
   const ul = document.getElementById("notes");
   ul.innerHTML = "";
+
+  if (!Array.isArray(data)) {
+    console.warn("Unexpected notes payload", data);
+    return;
+  }
 
   data.forEach((note) => {
     const li = document.createElement("li");
