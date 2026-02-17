@@ -3,10 +3,20 @@ import { getNotes, addNote, updateNote, deleteNote } from "./routes/notes.js";
 
 export async function main(event) {
   const method = event.requestContext.http.method;
-  const stage = event.requestContext.stage;
-  const rawPath = event.rawPath?.startsWith(`/${stage}`)
-    ? event.rawPath.slice(stage.length + 1)
-    : event.rawPath;
+  const stage =
+    event.requestContext.stage || event.requestContext.http?.stage;
+  console.log("handler receives", { stage, rawPath: event.rawPath });
+
+  let rawPath = event.rawPath ?? "/";
+  if (stage && rawPath.startsWith(`/${stage}`)) {
+    rawPath = rawPath.slice(stage.length + 1);
+  } else if (rawPath.startsWith("/")) {
+    const segments = rawPath.split("/");
+    if (segments.length > 1) {
+      rawPath = `/${segments.slice(2).join("/")}`;
+    }
+  }
+
   const path = rawPath || "/";
 
   if (method === "OPTIONS") {
