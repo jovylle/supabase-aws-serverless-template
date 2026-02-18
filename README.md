@@ -10,7 +10,7 @@ Simple starter template for:
 When you want to spin up a new project from this template:
 
 1. Create a new empty GitHub repository (no README, no license, no gitignore).
-2. `git clone https://github.com/<you>/<supabase-aws-serverless-template>.git my-new-project && cd my-new-project`
+2. `git clone https://github.com/jovylle/supabase-aws-serverless-template my-new-project && cd my-new-project`
 3. Point this clone to your new repository:
    ```sh
    git remote rename origin template-origin
