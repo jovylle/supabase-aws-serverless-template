@@ -9,11 +9,19 @@ Simple starter template for:
 
 When you want to spin up a new project from this template:
 
-1. `git clone https://github.com/<you>/<supabase-aws-serverless-template>.git my-new-project && cd my-new-project`
-2. Copy the backend example env file and source it (`cp backend/.env.example backend/.env` and edit values).
-3. Install backend deps (`cd backend && npm install`) so the schema helper script can run.
-4. Run `npm run schema:apply` and `npm run schema:seed` (with `SUPABASE_DATABASE_URL` in `.env`) to provision the `notes` and `projects` tables plus sample data.
-5. Deploy the Lambda (`serverless deploy`) and update `frontend/app.js` with the published API endpoint before hosting the static app.
+1. Create a new empty GitHub repository (no README, no license, no gitignore).
+2. `git clone https://github.com/<you>/<supabase-aws-serverless-template>.git my-new-project && cd my-new-project`
+3. Point this clone to your new repository:
+   ```sh
+   git remote rename origin template-origin
+   git remote add origin https://github.com/<you>/<my-new-project>.git
+   git push -u origin master
+   ```
+   If your default branch is `main`, push `main` instead of `master`.
+4. Copy the backend example env file and edit values (`cp backend/.env.example backend/.env`).
+5. Install backend deps (`cd backend && npm install`) so the schema helper script can run.
+6. Run `npm run schema:apply` and `npm run schema:seed` (with `SUPABASE_DATABASE_URL` in `.env`) to provision the `notes` and `projects` tables plus sample data.
+7. Deploy the Lambda (`serverless deploy`) and update `frontend/app.js` with the published API endpoint before hosting the static app.
 
 This keeps the setup steps reproducible for every clone without copying the SQL from the README or recreating scripts manually.
 
