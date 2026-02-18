@@ -1,11 +1,16 @@
 {
   "name": "backend",
   "type": "module",
+  "scripts": {
+    "schema:apply": "node ./scripts/run-sql.js ./sql/schema.sql",
+    "schema:seed": "node ./scripts/run-sql.js ./sql/seeds.sql"
+  },
   "dependencies": {
-    "@supabase/supabase-js": "^2.49.0"
+    "@supabase/supabase-js": "^2.49.0",
+    "pg": "^8.12.2"
   },
   "devDependencies": {
     "serverless": "^3.34.0",
-    "serverless-offline": "^14.4.0"
+    "serverless-offline": "^12.0.4"
   }
 }
