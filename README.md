@@ -1,4 +1,5 @@
 # Supabase + AWS Lambda Template
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e8ff45b7-35cd-4e35-9242-944961be571f" />
 
 Simple starter template for:
 - Supabase Database
